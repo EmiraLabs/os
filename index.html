@@ -39,23 +39,32 @@
                 </svg>
                 <span>EmiraOS</span>
             </a>
-            <div class="nav-links">
-                <a href="#tools">Tools</a>
-                <a href="#about">About</a>
-                <a href="#contribute">Contribute</a>
-                <a href="https://emiralabs.com" target="_blank" class="emiralabs-link">
-                    <span class="gradient-text">EmiraLabs</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-                        <defs>
-                            <linearGradient id="emiraGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#00d4ff"/>
-                                <stop offset="100%" stop-color="#00fff0"/>
-                            </linearGradient>
-                        </defs>
-                        <path d="M10 2v2h2.586L7.5 8.086 8.914 9.5 14 4.414V7h2V2z" fill="url(#emiraGrad)"/>
-                        <path d="M2 4v10h10v-2H4V4z" fill="url(#emiraGrad)"/>
-                    </svg>
-                </a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <div class="nav-menu">
+                <button class="close-modal" onclick="document.getElementById('nav-toggle').checked = false;">&times;</button>
+                <div class="nav-links">
+                    <a href="#tools">Tools</a>
+                    <a href="#about">About</a>
+                    <a href="#contribute">Contribute</a>
+                    <a href="https://emiralabs.com" target="_blank" class="emiralabs-link">
+                        <span class="gradient-text">EmiraLabs</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                            <defs>
+                                <linearGradient id="emiraGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#00d4ff"/>
+                                    <stop offset="100%" stop-color="#00fff0"/>
+                                </linearGradient>
+                            </defs>
+                            <path d="M10 2v2h2.586L7.5 8.086 8.914 9.5 14 4.414V7h2V2z" fill="url(#emiraGrad)"/>
+                            <path d="M2 4v10h10v-2H4V4z" fill="url(#emiraGrad)"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
@@ -223,5 +232,12 @@
             </div>
         </div>
     </footer>
+    <script>
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('nav-toggle').checked = false;
+            });
+        });
+    </script>
 </body>
 </html>
