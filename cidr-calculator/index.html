@@ -3,33 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CIDR Calculator - Emira Labs</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>CIDR Calculator - EmiraLabs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <header>
-        <h1>CIDR Calculator</h1>
-    </header>
-    <main>
-        <div class="tool-description">
-            <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> Back to Tools</a>
-            <span class="badge">Network Tool</span>
-            <h2>CIDR Calculator</h2>
-            <p>Enter an IP address and CIDR prefix to calculate precise network details, subnet masks, and address ranges for efficient network planning.</p>
-        </div>
-        <form id="cidrForm" class="calculator-form">
-            <div class="form-row">
-                <input type="text" id="ip" placeholder="IP Address (e.g., 192.168.1.1)" class="form-input" required>
-                <input type="number" id="cidr" min="0" max="32" placeholder="CIDR Prefix (e.g., 24)" class="form-input" required>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="111.249 35.768 47.412 64.914" width="32" height="32">
+                    <path d="M 121.737 75.641 L 120 65.793 L 149.91 60.519 L 149.91 70.673 Z" style="stroke-width: 1px; fill: white;"/>
+                    <path d="M 120 91.931 L 130 90.157 L 130 64.03 L 120 65.793 Z" style="fill: white;"/>
+                    <path d="M 120 49.763 L 130 48 L 130 48.03 L 149.91 44.519 L 149.91 54.673 L 121.737 59.641 L 121.735 59.627 L 120 59.933 Z" style="fill: white;"/>
+                    <path d="M 139.831 62.296 L 139.831 72.45 L 129.831 74.214 L 129.831 64.06 Z" style="fill: white;"/>
+                    <path d="M 139.831 62.296 L 139.831 72.45 L 129.831 74.214 L 129.831 64.06 Z" style="fill: white;"/>
+                    <path d="M 139.846 72.501 L 139.847 62.224 L 139.976 62.201 L 149.688 70.745 L 139.846 72.501 Z" style="stroke-width: 1px; fill: white;"/>
+                    <path d="M 120 60 L 120.001 49.723 L 120.13 49.7 L 129.842 58.244 L 120 60 Z" style="stroke-width: 1px; fill: white;"/>
+                    <path d="M 140.021 78.38 L 149.636 86.839 L 149.833 86.804 L 149.833 76.65 Z" style="fill: white; stroke-width: 1px;"/>
+                    <path d="M 135.9 79.139 L 135.9 89.293 L 149.733 86.854 L 149.733 76.7 L 135.9 79.139 Z" style="stroke-width: 1px; fill: white;"/>
+                    <path d="M 140 78.43 L 149.615 86.889 L 149.812 86.854 L 149.812 76.7 L 140 78.43 Z" style="fill: white; stroke-width: 1px;"/>
+                </svg>
+                <span>EmiraLabs</span>
             </div>
-            <button type="submit" class="form-submit">Calculate <i class="fas fa-calculator"></i></button>
-        </form>
-        <div id="result"></div>
+            <div class="nav-links">
+                <a href="../#tools">Tools</a>
+                <a href="../#about">About</a>
+                <a href="../#contribute">Contribute</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="gradient-text">CIDR Calculator</span>
+                <span class="hero-subtitle">Network Tool</span>
+            </h1>
+            <p class="hero-description">
+                Enter an IP address and CIDR prefix to calculate precise network details, subnet masks, and address ranges for efficient network planning.
+            </p>
+        </div>
+        <div class="hero-visual">
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="calculator-section">
+            <div class="container">
+                <form id="cidrForm" class="calculator-form">
+                    <div class="form-row">
+                        <input type="text" id="ip" placeholder="IP Address (e.g., 192.168.1.1)" class="form-input" required>
+                        <input type="number" id="cidr" min="0" max="32" placeholder="CIDR Prefix (e.g., 24)" class="form-input" required>
+                    </div>
+                    <button type="submit" class="form-submit">Calculate <i class="fas fa-calculator"></i></button>
+                </form>
+                <div id="result" class="result-container"></div>
+            </div>
+        </section>
+
+        <section class="documentation-section">
+            <div class="container">
+                <h2>Implementation Documentation</h2>
+                <p>This CIDR Calculator is implemented using pure JavaScript with no external dependencies. The calculation logic is based on binary manipulation of IP addresses.</p>
+                
+                <h3>Step-by-Step Code Breakdown</h3>
+                
+                <h4>1. IP Address Validation</h4>
+                <p>First, we validate that the input is a proper IPv4 address:</p>
+                <div class="code-snippet">
+                    <pre><code>const ipParts = ip.split('.').map(Number);</code></pre>
+                </div>
+                <p>Splits the IP string by dots and converts each part to a number.</p>
+                <div class="code-snippet">
+                    <pre><code>if (ipParts.length !== 4 || ipParts.some(p => p < 0 || p > 255)) {
+    return '&lt;p&gt;Invalid IP address.&lt;/p&gt;';
+}</code></pre>
+                </div>
+                <p>Checks that there are exactly 4 parts and each is between 0-255.</p>
+                
+                <h4>2. Binary Conversion</h4>
+                <p>Convert the IP address to a 32-bit binary string:</p>
+                <div class="code-snippet">
+                    <pre><code>const ipBinary = ipParts.map(p => p.toString(2).padStart(8, '0')).join('');</code></pre>
+                </div>
+                <p>Each octet is converted to 8-bit binary and concatenated.</p>
+                
+                <h4>3. Network and Broadcast Calculation</h4>
+                <p>Calculate network address (first 'cidr' bits remain, rest become 0):</p>
+                <div class="code-snippet">
+                    <pre><code>const networkBinary = ipBinary.substring(0, cidr) + '0'.repeat(32 - cidr);</code></pre>
+                </div>
+                <p>Calculate broadcast address (first 'cidr' bits remain, rest become 1):</p>
+                <div class="code-snippet">
+                    <pre><code>const broadcastBinary = ipBinary.substring(0, cidr) + '1'.repeat(32 - cidr);</code></pre>
+                </div>
+                
+                <h4>4. IP Address Reconstruction</h4>
+                <p>Convert binary strings back to dotted decimal format:</p>
+                <div class="code-snippet">
+                    <pre><code>function binaryToIP(binary) {
+    return [
+        parseInt(binary.substring(0, 8), 2),
+        parseInt(binary.substring(8, 16), 2),
+        parseInt(binary.substring(16, 24), 2),
+        parseInt(binary.substring(24, 32), 2)
+    ].join('.');
+}</code></pre>
+                </div>
+                <p>Splits 32-bit binary into 4 octets and converts each to decimal.</p>
+                
+                <h4>5. Host Address Calculation</h4>
+                <p>Calculate first usable host (network address + 1):</p>
+                <div class="code-snippet">
+                    <pre><code>const firstHost = cidr < 31 ? binaryToIP(networkBinary.substring(0, 31) + '1') : networkIP;</code></pre>
+                </div>
+                <p>Calculate last usable host (broadcast address - 1):</p>
+                <div class="code-snippet">
+                    <pre><code>const lastHost = cidr < 31 ? binaryToIP(broadcastBinary.substring(0, 31) + '0') : broadcastIP;</code></pre>
+                </div>
+                
+                <h4>6. Host Count Calculation</h4>
+                <p>Total addresses in the subnet:</p>
+                <div class="code-snippet">
+                    <pre><code>const totalHosts = cidr <= 30 ? Math.pow(2, 32 - cidr) : 1;</code></pre>
+                </div>
+                <p>Usable addresses (excluding network and broadcast):</p>
+                <div class="code-snippet">
+                    <pre><code>const usableHosts = cidr <= 30 ? totalHosts - 2 : 1;</code></pre>
+                </div>
+                
+                <h3>How It Works</h3>
+                <ol>
+                    <li><strong>IP Validation:</strong> The function first validates that the input is a valid IPv4 address by splitting it into four parts and ensuring each is between 0 and 255.</li>
+                    <li><strong>Binary Conversion:</strong> Each octet of the IP address is converted to an 8-bit binary string, then concatenated into a 32-bit binary representation.</li>
+                    <li><strong>Network Calculation:</strong> The network address is calculated by taking the first 'cidr' bits from the IP binary and padding the rest with zeros.</li>
+                    <li><strong>Broadcast Calculation:</strong> The broadcast address uses the first 'cidr' bits from the IP and fills the remaining bits with ones.</li>
+                    <li><strong>Host Range:</strong> First and last usable host addresses are calculated by incrementing/decrementing the network/broadcast addresses appropriately (except for /31 and /32 prefixes).</li>
+                    <li><strong>Host Count:</strong> Total hosts are calculated as 2^(32-cidr), with usable hosts being total minus 2 (network and broadcast addresses), except for point-to-point links (/31) and host routes (/32).</li>
+                </ol>
+                
+                <h3>Edge Cases Handled</h3>
+                <ul>
+                    <li>Invalid IP addresses are detected and reported.</li>
+                    <li>/31 prefixes (point-to-point links) have 2 total hosts, both usable.</li>
+                    <li>/32 prefixes (host routes) have 1 total and usable host.</li>
+                    <li>All calculations use 32-bit binary arithmetic for accuracy.</li>
+                </ul>
+            </div>
+        </section>
     </main>
-    <footer>
-        <p>&copy; 2025 Emira Labs. All rights reserved.</p>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="111.249 35.768 47.412 64.914" width="24" height="24">
+                        <path d="M 121.737 75.641 L 120 65.793 L 149.91 60.519 L 149.91 70.673 Z" style="stroke-width: 1px; fill: rgb(25, 166, 162);"/>
+                        <path d="M 120 91.931 L 130 90.157 L 130 64.03 L 120 65.793 Z" style="fill: rgb(15, 33, 81);"/>
+                        <path d="M 120 49.763 L 130 48 L 130 48.03 L 149.91 44.519 L 149.91 54.673 L 121.737 59.641 L 121.735 59.627 L 120 59.933 Z" style="fill: rgb(25, 166, 162);"/>
+                        <path d="M 139.831 62.296 L 139.831 72.45 L 129.831 74.214 L 129.831 64.06 Z" style="fill: rgb(15, 33, 81);"/>
+                        <path d="M 139.831 62.296 L 139.831 72.45 L 129.831 74.214 L 129.831 64.06 Z" style="fill: rgb(25, 166, 162); fill-opacity: 0.5;"/>
+                        <path d="M 139.846 72.501 L 139.847 62.224 L 139.976 62.201 L 149.688 70.745 L 139.846 72.501 Z" style="stroke-width: 1px; fill: rgb(15, 33, 81); fill-opacity: 0.25;"/>
+                        <path d="M 120 60 L 120.001 49.723 L 120.13 49.7 L 129.842 58.244 L 120 60 Z" style="fill-opacity: 0.5; stroke-width: 1px; fill: rgb(15, 33, 81);"/>
+                        <path d="M 140.021 78.38 L 149.636 86.839 L 149.833 86.804 L 149.833 76.65 Z" style="fill: rgb(25, 166, 162); stroke-width: 1px;"/>
+                        <path d="M 135.9 79.139 L 135.9 89.293 L 149.733 86.854 L 149.733 76.7 L 135.9 79.139 Z" style="stroke-width: 1px; fill: rgb(15, 33, 81);"/>
+                        <path d="M 140 78.43 L 149.615 86.889 L 149.812 86.854 L 149.812 76.7 L 140 78.43 Z" style="fill: rgb(25, 166, 162); stroke-width: 1px; fill-opacity: 0.5;"/>
+                    </svg>
+                    <span>EmiraLabs</span>
+                </div>
+                <p class="footer-text">Building the future of open source tools, one line of code at a time.</p>
+                <p class="footer-copyright">&copy; 2025 EmiraLabs. Made with <i class="fas fa-heart"></i> for developers everywhere.</p>
+            </div>
+        </div>
     </footer>
 
     <script>
