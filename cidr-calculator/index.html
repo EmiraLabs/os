@@ -4,30 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CIDR Calculator - Emira Labs</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        h1 { color: #333; }
-        form { margin-bottom: 20px; }
-        label { display: block; margin: 10px 0 5px; }
-        input { padding: 8px; width: 200px; }
-        button { padding: 10px 20px; background: #007bff; color: white; border: none; cursor: pointer; }
-        button:hover { background: #0056b3; }
-        #result { margin-top: 20px; padding: 10px; background: #f9f9f9; border: 1px solid #ddd; }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <h1>CIDR Calculator</h1>
-    <p>Enter an IP address and CIDR prefix to calculate network details.</p>
-    <form id="cidrForm">
-        <label for="ip">IP Address:</label>
-        <input type="text" id="ip" placeholder="e.g., 192.168.1.1" required>
-        
-        <label for="cidr">CIDR Prefix:</label>
-        <input type="number" id="cidr" min="0" max="32" placeholder="e.g., 24" required>
-        
-        <button type="submit">Calculate</button>
-    </form>
-    <div id="result"></div>
+    <header>
+        <h1>CIDR Calculator</h1>
+    </header>
+    <main>
+        <div class="tool-description">
+            <a href="/" class="back-link"><i class="fas fa-arrow-left"></i> Back to Tools</a>
+            <span class="badge">Network Tool</span>
+            <h2>CIDR Calculator</h2>
+            <p>Enter an IP address and CIDR prefix to calculate precise network details, subnet masks, and address ranges for efficient network planning.</p>
+        </div>
+        <form id="cidrForm" class="calculator-form">
+            <div class="form-row">
+                <input type="text" id="ip" placeholder="IP Address (e.g., 192.168.1.1)" class="form-input" required>
+                <input type="number" id="cidr" min="0" max="32" placeholder="CIDR Prefix (e.g., 24)" class="form-input" required>
+            </div>
+            <button type="submit" class="form-submit">Calculate <i class="fas fa-calculator"></i></button>
+        </form>
+        <div id="result"></div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Emira Labs. All rights reserved.</p>
+    </footer>
 
     <script>
         document.getElementById('cidrForm').addEventListener('submit', function(e) {
@@ -35,7 +38,9 @@
             const ip = document.getElementById('ip').value;
             const cidr = parseInt(document.getElementById('cidr').value);
             const result = calculateCIDR(ip, cidr);
-            document.getElementById('result').innerHTML = result;
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = result;
+            resultDiv.classList.add('show');
         });
 
         function calculateCIDR(ip, cidr) {
@@ -46,14 +51,14 @@
             const ipBinary = ipParts.map(p => p.toString(2).padStart(8, '0')).join('');
             const networkBinary = ipBinary.substring(0, cidr) + '0'.repeat(32 - cidr);
             const broadcastBinary = ipBinary.substring(0, cidr) + '1'.repeat(32 - cidr);
-            
+
             const networkIP = binaryToIP(networkBinary);
             const broadcastIP = binaryToIP(broadcastBinary);
             const firstHost = cidr < 31 ? binaryToIP(networkBinary.substring(0, 31) + '1') : networkIP;
             const lastHost = cidr < 31 ? binaryToIP(broadcastBinary.substring(0, 31) + '0') : broadcastIP;
             const totalHosts = cidr <= 30 ? Math.pow(2, 32 - cidr) : 1;
             const usableHosts = cidr <= 30 ? totalHosts - 2 : 1;
-            
+
             return `
                 <p><strong>Network Address:</strong> ${networkIP}/${cidr}</p>
                 <p><strong>Broadcast Address:</strong> ${broadcastIP}</p>
