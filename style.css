@@ -1152,6 +1152,134 @@ body {
     left: 0;
 }
 
+/* SLO Calculator Specific Styles */
+.slo-targets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.slo-target {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    padding: 15px;
+    text-align: center;
+    transition: var(--transition-fast);
+}
+
+.slo-target:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+    border-color: var(--accent-electric);
+}
+
+.slo-percentage {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-electric);
+    margin-bottom: 5px;
+}
+
+.slo-downtime {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+}
+
+.slo-name {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* Formula Section */
+.formula-section {
+    margin-top: 40px;
+}
+
+.formula-display {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    padding: 25px;
+    text-align: center;
+}
+
+.formula-equation {
+    font-size: 1.2rem;
+    color: var(--accent-electric);
+    margin-bottom: 20px;
+    padding: 15px;
+    background: var(--bg-quaternary);
+    border-radius: var(--radius);
+}
+
+.formula-breakdown {
+    text-align: left;
+}
+
+.formula-breakdown ul {
+    margin-left: 0;
+    padding-left: 20px;
+}
+
+.formula-breakdown li {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+/* Applications Section */
+.applications-section {
+    margin-top: 40px;
+}
+
+.applications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.application {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: center;
+    transition: var(--transition-fast);
+}
+
+.application:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+    border-color: var(--accent-electric);
+}
+
+.application h4 {
+    color: var(--accent-electric);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.application h4 i {
+    font-size: 1.1rem;
+}
+
+.application p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+}
+
 .code-snippet code {
     background: none;
     padding: 0;
