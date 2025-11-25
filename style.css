@@ -75,6 +75,12 @@ body {
     font-weight: 700;
     font-size: 1.25rem;
     color: var(--text-primary);
+    text-decoration: none;
+}
+
+.logo:hover {
+    text-decoration: none;
+    color: var(--text-primary);
 }
 
 .logo svg {
