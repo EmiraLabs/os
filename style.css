@@ -682,8 +682,10 @@ body {
     background: var(--bg-tertiary);
     padding: 40px;
     border-radius: var(--radius-large);
-    border: 1px solid var(--glass-border);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-strong), 0 0 30px rgba(0, 212, 255, 0.2);
+    color: var(--text-primary);
 }
 
 .form-row {
@@ -696,7 +698,7 @@ body {
     flex: 1;
     padding: 16px 20px;
     background: var(--bg-secondary);
-    border: 1px solid var(--glass-border);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: var(--radius);
     color: var(--text-primary);
     font-size: 16px;
@@ -734,7 +736,11 @@ body {
     padding: 30px;
     background: var(--bg-secondary);
     border-radius: var(--radius);
-    border: 1px solid var(--glass-border);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: var(--shadow-strong), 0 0 30px rgba(0, 212, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--text-primary);
     opacity: 0;
     transform: translateY(20px);
     transition: var(--transition);
