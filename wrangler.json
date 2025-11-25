@@ -1,0 +1,13 @@
+{
+  "name": "osemiralabscom",
+  "compatibility_date": "2025-11-17",
+  "assets": {
+    "directory": "./"
+  },
+  "routes": [
+    {
+      "pattern": "os.emiralabs.com",
+      "custom_domain": true
+    }
+  ]
+}
