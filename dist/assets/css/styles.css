@@ -402,9 +402,9 @@ body {
 }
 
 .tool-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-medium);
-    border-color: rgba(0, 212, 255, 0.2);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: var(--shadow-medium), 0 0 40px rgba(0, 212, 255, 0.15), 0 0 80px rgba(0, 212, 255, 0.05);
+    border-color: var(--accent-electric);
 }
 
 .tool-icon-large {
