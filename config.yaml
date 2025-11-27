@@ -1,10 +1,6 @@
 navigations:
-  - name: Home
-    url: /
   - name: Tools
     url: /#tools
-  - name: About
-    url: /#about
   - name: Contribute
     url: /#contribute
 
