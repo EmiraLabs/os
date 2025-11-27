@@ -228,7 +228,7 @@ body {
 
 .hero-description {
     font-size: 1.25rem;
-    max-width: 600px;
+    max-width: 1200px;
     margin: 0 auto 3rem;
     opacity: 0.9;
     line-height: 1.7;
@@ -397,7 +397,7 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    min-height: 320px;
+    min-height: 400px;
     justify-content: space-between;
 }
 
