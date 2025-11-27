@@ -280,6 +280,8 @@ body {
     50% {
         transform: translateY(-20px) rotate(180deg);
     }
+}
+
 .emiralabs-link {
     display: flex;
     align-items: center;
