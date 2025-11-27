@@ -785,6 +785,65 @@ body {
     .hero-visual {
         display: none;
     }
+
+    .calculator-form {
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .result-container {
+        padding: 20px;
+    }
+
+    .tool-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .input-section {
+        padding: 20px;
+    }
+
+    .options-group {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .doc-tabs {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        border-bottom: none;
+        margin: 20px 0;
+    }
+
+    .tab-button {
+        width: 100%;
+        padding: 16px 20px;
+        margin: 0;
+        border-radius: 0;
+        border-bottom: 1px solid var(--glass-border);
+        text-align: left;
+        font-size: 1rem;
+        background: var(--bg-secondary);
+        justify-content: flex-start;
+    }
+
+    .tab-button:hover {
+        background: var(--bg-tertiary);
+    }
+
+    .tab-button.active {
+        background: var(--bg-tertiary);
+        border-bottom: 2px solid var(--accent-electric);
+        color: var(--accent-electric);
+    }
+}
 }
 
 @media (max-width: 480px) {
@@ -1663,5 +1722,14 @@ body {
     .qr-container {
         min-height: 300px;
         padding: 20px;
+    }
+
+    .input-section {
+        padding: 20px;
+    }
+
+    .qr-container canvas {
+        max-width: 100%;
+        height: auto !important;
     }
 }
