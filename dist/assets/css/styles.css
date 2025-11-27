@@ -170,6 +170,7 @@ body {
     font-size: 2rem;
     cursor: pointer;
     z-index: 1002;
+    display: none;
 }
 
 .nav-menu {
@@ -717,6 +718,10 @@ body {
         transform: translateY(0);
         opacity: 1;
         visibility: visible;
+    }
+
+    .close-modal {
+        display: block;
     }
 
     .nav-links {
