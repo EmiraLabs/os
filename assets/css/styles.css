@@ -464,6 +464,24 @@ body {
     border: 1px solid #ffa500 !important;
 }
 
+.featured-tag {
+    background: transparent !important;
+    color: var(--accent-electric) !important;
+    border: 1px solid var(--accent-electric) !important;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+.tool-card.featured {
+    border-color: var(--accent-electric);
+    box-shadow: var(--shadow-soft), 0 0 20px rgba(0, 212, 255, 0.2);
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.05), rgba(0, 255, 240, 0.05));
+}
+
+.tool-card.featured:hover {
+    box-shadow: var(--shadow-medium), 0 0 60px rgba(0, 212, 255, 0.3), 0 0 120px rgba(0, 212, 255, 0.1);
+    border-color: var(--accent-aqua);
+}
+
 /* About Section */
 .about-section {
     padding: 100px 0;
