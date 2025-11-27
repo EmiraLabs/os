@@ -1,0 +1,378 @@
+---
+title: "CIDR Calculator - EmiraLabs Open Source Tools"
+description: "Calculate CIDR notation, subnet masks, and network details with our free online CIDR Calculator tool."
+keywords: "CIDR calculator, subnet calculator, network calculator, IP calculator, CIDR notation"
+canonical: "https://os.emiralabs.com/cidr-calculator/"
+og_title: "CIDR Calculator - EmiraLabs"
+og_description: "Calculate CIDR notation, subnet masks, and network details with our free online CIDR Calculator tool."
+og_image: "/assets/images/emiralabs-ico.svg"
+og_url: "https://os.emiralabs.com/cidr-calculator/"
+og_type: "website"
+twitter_title: "CIDR Calculator - EmiraLabs"
+twitter_description: "Calculate CIDR notation, subnet masks, and network details with our free online CIDR Calculator tool."
+twitter_image: "/assets/images/emiralabs-ico.svg"
+twitter_card: "summary_large_image"
+---
+
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">
+            <span class="gradient-text">CIDR Calculator</span>
+            <span class="hero-subtitle">Network Tool</span>
+        </h1>
+        <p class="hero-description">
+            Enter an IP address and CIDR prefix to calculate precise network details, subnet masks, and address ranges for efficient network planning.
+        </p>
+    </div>
+    <div class="hero-visual">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </div>
+</section>
+
+<section class="calculator-section">
+    <div class="container">
+        <form id="cidrForm" class="calculator-form">
+            <div class="form-row">
+                <input type="text" id="ip" placeholder="IP Address (e.g., 192.168.1.1)" class="form-input" required>
+                <input type="number" id="cidr" min="0" max="32" placeholder="CIDR Prefix (e.g., 24)" class="form-input" required>
+            </div>
+            <button type="submit" class="form-submit">Calculate <i class="fas fa-calculator"></i></button>
+        </form>
+        <div id="result" class="result-container"></div>
+    </div>
+</section>
+
+<section class="documentation-section">
+    <div class="container">
+        <h2>Documentation</h2>
+        
+        <!-- Tab Navigation -->
+        <div class="doc-tabs">
+            <button class="tab-button active" data-tab="overview">Overview</button>
+            <button class="tab-button" data-tab="examples">Examples</button>
+            <button class="tab-button" data-tab="tips">Tips & Best Practices</button>
+            <button class="tab-button" data-tab="technical">Code Implementations</button>
+        </div>
+        
+        <!-- Tab Content -->
+        <div class="tab-content">
+            <!-- Overview Tab -->
+            <div id="overview" class="tab-pane active">
+                <div class="overview-grid">
+                    <div class="overview-card">
+                        <h3><i class="fas fa-info-circle"></i> What is CIDR?</h3>
+                        <p>Classless Inter-Domain Routing (CIDR) is a method for allocating IP addresses and routing Internet Protocol packets. It replaces the older class-based system with a more flexible approach using variable-length subnet masking (VLSM).</p>
+                        <p>A CIDR notation consists of an IP address followed by a slash and a number (e.g., 192.168.1.0/24). The number after the slash indicates how many bits are used for the network portion of the address.</p>
+                    </div>
+                    
+                    <div class="overview-card">
+                        <h3><i class="fas fa-cogs"></i> How It Works</h3>
+                        <ol>
+                            <li><strong>Input Validation:</strong> Validates IPv4 address format</li>
+                            <li><strong>Binary Conversion:</strong> Converts IP to 32-bit binary</li>
+                            <li><strong>Network Calculation:</strong> Determines network and broadcast addresses</li>
+                            <li><strong>Host Range:</strong> Calculates usable host addresses</li>
+                            <li><strong>Capacity:</strong> Computes total and usable host counts</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="overview-card">
+                        <h3><i class="fas fa-tools"></i> Common Use Cases</h3>
+                        <ul>
+                            <li>Network planning and subnetting</li>
+                            <li>VPN and remote access configuration</li>
+                            <li>Cloud networking (AWS, Azure, GCP)</li>
+                            <li>Firewall and security group rules</li>
+                            <li>Network troubleshooting</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Examples Tab -->
+            <div id="examples" class="tab-pane">
+                <div class="examples-intro">
+                    <p>Here are some common CIDR examples with their calculated network details:</p>
+                </div>
+                <div class="examples-grid">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h4>192.168.1.0/24</h4>
+                            <span class="example-badge">Small Network</span>
+                        </div>
+                        <div class="example-details">
+                            <div class="detail-row"><strong>Network:</strong> 192.168.1.0</div>
+                            <div class="detail-row"><strong>Broadcast:</strong> 192.168.1.255</div>
+                            <div class="detail-row"><strong>Subnet Mask:</strong> 255.255.255.0</div>
+                            <div class="detail-row"><strong>Usable Hosts:</strong> 254</div>
+                        </div>
+                    </div>
+                    
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h4>10.0.0.0/8</h4>
+                            <span class="example-badge">Large Network</span>
+                        </div>
+                        <div class="example-details">
+                            <div class="detail-row"><strong>Network:</strong> 10.0.0.0</div>
+                            <div class="detail-row"><strong>Broadcast:</strong> 10.255.255.255</div>
+                            <div class="detail-row"><strong>Subnet Mask:</strong> 255.0.0.0</div>
+                            <div class="detail-row"><strong>Usable Hosts:</strong> 16,777,214</div>
+                        </div>
+                    </div>
+                    
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h4>172.16.0.0/16</h4>
+                            <span class="example-badge">Medium Network</span>
+                        </div>
+                        <div class="example-details">
+                            <div class="detail-row"><strong>Network:</strong> 172.16.0.0</div>
+                            <div class="detail-row"><strong>Broadcast:</strong> 172.16.255.255</div>
+                            <div class="detail-row"><strong>Subnet Mask:</strong> 255.255.0.0</div>
+                            <div class="detail-row"><strong>Usable Hosts:</strong> 65,534</div>
+                        </div>
+                    </div>
+                    
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h4>192.168.1.1/32</h4>
+                            <span class="example-badge">Host Route</span>
+                        </div>
+                        <div class="example-details">
+                            <div class="detail-row"><strong>Network:</strong> 192.168.1.1</div>
+                            <div class="detail-row"><strong>Broadcast:</strong> 192.168.1.1</div>
+                            <div class="detail-row"><strong>Subnet Mask:</strong> 255.255.255.255</div>
+                            <div class="detail-row"><strong>Usable Hosts:</strong> 1</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Technical Details Tab -->
+            <div id="technical" class="tab-pane">
+                <div class="tech-intro">
+                    <p>This CIDR Calculator is implemented using pure JavaScript with no external dependencies. The calculation logic is based on binary manipulation of IP addresses for maximum accuracy.</p>
+                </div>
+                
+                <div class="code-breakdown">
+                    <h3>Step-by-Step Code Breakdown</h3>
+                    
+                    <div class="code-step">
+                        <h4>1. IP Address Validation</h4>
+                        <p>First, we validate that the input is a proper IPv4 address:</p>
+                        <div class="code-snippet">
+                            <pre><code>const ipParts = ip.split('.').map(Number);
+// Split IP string into octets and convert to numbers</code></pre>
+                        </div>
+                        <div class="code-snippet">
+                            <pre><code>if (ipParts.length !== 4 || ipParts.some(p => p < 0 || p > 255)) {
+    return '&lt;p&gt;Invalid IP address.&lt;/p&gt;';
+}
+// Ensure exactly 4 octets, each between 0-255</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="code-step">
+                        <h4>2. Binary Conversion</h4>
+                        <p>Convert the IP address to a 32-bit binary string for bitwise operations:</p>
+                        <div class="code-snippet">
+                            <pre><code>const ipBinary = ipParts.map(p => p.toString(2).padStart(8, '0')).join('');
+// Convert each octet to 8-bit binary and concatenate</code></pre>
+                        </div>
+                        <p>This creates a 32-bit string representation of the IP address.</p>
+                    </div>
+                    
+                    <div class="code-step">
+                        <h4>3. Network and Broadcast Calculation</h4>
+                        <p>The network address is the first address in the subnet, with all host bits set to 0:</p>
+                        <div class="code-snippet">
+                            <pre><code>const networkBinary = ipBinary.substring(0, cidr) + '0'.repeat(32 - cidr);
+// Keep first 'cidr' bits, set remaining bits to 0</code></pre>
+                        </div>
+                        <p>The broadcast address is the last address in the subnet, with all host bits set to 1:</p>
+                        <div class="code-snippet">
+                            <pre><code>const broadcastBinary = ipBinary.substring(0, cidr) + '1'.repeat(32 - cidr);
+// Keep first 'cidr' bits, set remaining bits to 1</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="code-step">
+                        <h4>4. IP Address Reconstruction</h4>
+                        <p>Convert binary strings back to dotted decimal format:</p>
+                        <div class="code-snippet">
+                            <pre><code>function binaryToIP(binary) {
+    return [
+        parseInt(binary.substring(0, 8), 2),   // First octet (bits 0-7)
+        parseInt(binary.substring(8, 16), 2),  // Second octet (bits 8-15)
+        parseInt(binary.substring(16, 24), 2), // Third octet (bits 16-23)
+        parseInt(binary.substring(24, 32), 2)  // Fourth octet (bits 24-31)
+    ].join('.');
+}</code></pre>
+                        </div>
+                        <p>This helper function converts a 32-bit binary string back to IPv4 dotted decimal notation.</p>
+                    </div>
+                    
+                    <div class="code-step">
+                        <h4>5. Host Address Calculation</h4>
+                        <p>Calculate the first usable host address (network address + 1):</p>
+                        <div class="code-snippet">
+                            <pre><code>const firstHost = cidr < 31 ? binaryToIP(networkBinary.substring(0, 31) + '1') : networkIP;
+// For /31 and /32, network address is usable</code></pre>
+                        </div>
+                        <p>Calculate the last usable host address (broadcast address - 1):</p>
+                        <div class="code-snippet">
+                            <pre><code>const lastHost = cidr < 31 ? binaryToIP(broadcastBinary.substring(0, 31) + '0') : broadcastIP;
+// For /31 and /32, broadcast address is usable</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="code-step">
+                        <h4>6. Host Count Calculation</h4>
+                        <p>Total addresses in the subnet (including network and broadcast):</p>
+                        <div class="code-snippet">
+                            <pre><code>const totalHosts = cidr <= 30 ? Math.pow(2, 32 - cidr) : 1;
+// 2^(32-cidr) for /0 to /30, 1 for /31 and /32</code></pre>
+                        </div>
+                        <p>Usable addresses for host assignment (excluding network and broadcast):</p>
+                        <div class="code-snippet">
+                            <pre><code>const usableHosts = cidr <= 30 ? totalHosts - 2 : 1;
+// Total minus 2 for /0 to /30, 1 for /31 and /32</code></pre>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="edge-cases">
+                    <h3>Edge Cases and Special Considerations</h3>
+                    <div class="edge-cases-grid">
+                        <div class="edge-case">
+                            <h4>/31 Prefixes (RFC 3021)</h4>
+                            <p>Point-to-point links with 2 total hosts, both usable (no network/broadcast addresses).</p>
+                        </div>
+                        <div class="edge-case">
+                            <h4>/32 Prefixes</h4>
+                            <p>Host routes with 1 total and usable host (single IP address).</p>
+                        </div>
+                        <div class="edge-case">
+                            <h4>/0 Prefix</h4>
+                            <p>Represents the entire IPv4 address space (0.0.0.0/0).</p>
+                        </div>
+                        <div class="edge-case">
+                            <h4>Binary Precision</h4>
+                            <p>All calculations use 32-bit binary arithmetic for accuracy and consistency.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tips Tab -->
+            <div id="tips" class="tab-pane">
+                <div class="tips-grid">
+                    <div class="tips-card">
+                        <h3><i class="fas fa-lightbulb"></i> Subnetting Tips</h3>
+                        <ul>
+                            <li><strong>Choose appropriate prefix lengths:</strong> /24 for small networks, /16 for larger subnets, /8 for very large networks.</li>
+                            <li><strong>Plan for growth:</strong> Allocate more addresses than currently needed to avoid renumbering later.</li>
+                            <li><strong>Use VLSM:</strong> Variable Length Subnet Masks allow efficient use of address space by creating subnets of different sizes.</li>
+                            <li><strong>Document your subnets:</strong> Keep track of allocated subnets to avoid conflicts and aid troubleshooting.</li>
+                            <li><strong>Consider RFC 1918:</strong> Use private address ranges (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) for internal networks.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tips-card">
+                        <h3><i class="fas fa-network-wired"></i> Network Planning</h3>
+                        <ul>
+                            <li><strong>Departmental subnets:</strong> Use /24 for departments with 250+ devices</li>
+                            <li><strong>VLAN design:</strong> Plan subnets per VLAN for security and management</li>
+                            <li><strong>Future expansion:</strong> Leave room for growth in subnet allocations</li>
+                            <li><strong>Address conservation:</strong> Use the smallest subnet that meets current needs</li>
+                            <li><strong>Hierarchical design:</strong> Organize subnets in a logical hierarchy</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tips-card">
+                        <h3><i class="fas fa-shield-alt"></i> Security Considerations</h3>
+                        <ul>
+                            <li><strong>Firewall rules:</strong> Use CIDR notation for precise access control</li>
+                            <li><strong>Network segmentation:</strong> Isolate sensitive systems in separate subnets</li>
+                            <li><strong>Access control:</strong> Implement least privilege with subnet restrictions</li>
+                            <li><strong>Monitoring:</strong> Log and monitor traffic between subnets</li>
+                            <li><strong>Compliance:</strong> Ensure subnet design meets security requirements</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.getElementById('cidrForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const ip = document.getElementById('ip').value;
+        const cidr = parseInt(document.getElementById('cidr').value);
+        const result = calculateCIDR(ip, cidr);
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = result;
+        resultDiv.classList.add('show');
+    });
+
+    function calculateCIDR(ip, cidr) {
+        const ipParts = ip.split('.').map(Number);
+        if (ipParts.length !== 4 || ipParts.some(p => p < 0 || p > 255)) {
+            return '<p>Invalid IP address.</p>';
+        }
+        const ipBinary = ipParts.map(p => p.toString(2).padStart(8, '0')).join('');
+        const networkBinary = ipBinary.substring(0, cidr) + '0'.repeat(32 - cidr);
+        const broadcastBinary = ipBinary.substring(0, cidr) + '1'.repeat(32 - cidr);
+
+        const networkIP = binaryToIP(networkBinary);
+        const broadcastIP = binaryToIP(broadcastBinary);
+        const firstHost = cidr < 31 ? binaryToIP(networkBinary.substring(0, 31) + '1') : networkIP;
+        const lastHost = cidr < 31 ? binaryToIP(broadcastBinary.substring(0, 31) + '0') : broadcastIP;
+        const totalHosts = cidr <= 30 ? Math.pow(2, 32 - cidr) : 1;
+        const usableHosts = cidr <= 30 ? totalHosts - 2 : 1;
+
+        return `
+            <p><strong>Network Address:</strong> ${networkIP}/${cidr}</p>
+            <p><strong>Broadcast Address:</strong> ${broadcastIP}</p>
+            <p><strong>First Host:</strong> ${firstHost}</p>
+            <p><strong>Last Host:</strong> ${lastHost}</p>
+            <p><strong>Total Hosts:</strong> ${totalHosts}</p>
+            <p><strong>Usable Hosts:</strong> ${usableHosts}</p>
+        `;
+    }
+
+    function binaryToIP(binary) {
+        return [
+            parseInt(binary.substring(0, 8), 2),
+            parseInt(binary.substring(8, 16), 2),
+            parseInt(binary.substring(16, 24), 2),
+            parseInt(binary.substring(24, 32), 2)
+        ].join('.');
+    }
+
+    // Tab functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabPanes = document.querySelectorAll('.tab-pane');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const tabId = this.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and panes
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabPanes.forEach(pane => pane.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding pane
+                this.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    });
+</script>

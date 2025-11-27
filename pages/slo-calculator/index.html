@@ -1,0 +1,371 @@
+---
+title: "SLO Calculator - EmiraLabs"
+description: "Calculate Service Level Objectives (SLOs) with our free online SLO Calculator tool. Determine error budgets and reliability metrics."
+keywords: "SLO calculator, service level objective, error budget calculator, reliability calculator"
+canonical: "https://os.emiralabs.com/slo-calculator/"
+og_title: "SLO Calculator - EmiraLabs"
+og_description: "Calculate Service Level Objectives (SLOs) with our free online SLO Calculator tool. Determine error budgets and reliability metrics."
+og_image: "/assets/images/emiralabs-ico.svg"
+og_url: "https://os.emiralabs.com/slo-calculator/"
+og_type: "website"
+twitter_title: "SLO Calculator - EmiraLabs"
+twitter_description: "Calculate Service Level Objectives (SLOs) with our free online SLO Calculator tool. Determine error budgets and reliability metrics."
+twitter_image: "/assets/images/emiralabs-ico.svg"
+twitter_card: "summary_large_image"
+---
+
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">
+            <span class="gradient-text">SLO Calculator</span>
+            <span class="hero-subtitle">SRE Tool</span>
+        </h1>
+        <p class="hero-description">
+            Calculate Service Level Objectives and error budgets. Determine allowed downtime for your target uptime percentage over a specified period.
+        </p>
+    </div>
+    <div class="hero-visual">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </div>
+</section>
+
+<section class="calculator-section">
+    <div class="container">
+        <form id="sloForm" class="calculator-form">
+            <div class="form-row">
+                <input type="number" id="slo" min="0" max="100" step="0.01" placeholder="SLO % (e.g., 99.9)" class="form-input" required>
+                <input type="number" id="days" min="1" placeholder="Time Period (days, e.g., 30)" class="form-input" required>
+            </div>
+            <button type="submit" class="form-submit">Calculate <i class="fas fa-calculator"></i></button>
+        </form>
+        <div id="result" class="result-container"></div>
+    </div>
+</section>
+
+<section class="documentation-section">
+    <div class="container">
+        <h2>Documentation</h2>
+        
+        <!-- Tab Navigation -->
+        <div class="doc-tabs">
+            <button class="tab-button active" data-tab="overview">Overview</button>
+            <button class="tab-button" data-tab="examples">Examples</button>
+            <button class="tab-button" data-tab="practices">Best Practices</button>
+            <button class="tab-button" data-tab="technical">Code Implementations</button>
+        </div>
+        
+        <!-- Tab Content -->
+        <div class="tab-content">
+            <!-- Overview Tab -->
+            <div id="overview" class="tab-pane active">
+                <div class="overview-grid">
+                    <div class="overview-card">
+                        <h3><i class="fas fa-chart-line"></i> What is SLO?</h3>
+                        <p>Service Level Objectives (SLOs) define the target level of service reliability. They are typically expressed as a percentage of uptime over a time period, representing how much downtime is acceptable.</p>
+                        <p>SLOs help teams balance reliability with development velocity by providing clear targets for system availability.</p>
+                    </div>
+                    
+                    <div class="overview-card">
+                        <h3><i class="fas fa-key"></i> Key Concepts</h3>
+                        <ul>
+                            <li><strong>SLO:</strong> Target percentage of time the service should be available</li>
+                            <li><strong>Error Budget:</strong> Amount of downtime allowed while meeting SLO</li>
+                            <li><strong>Burn Rate:</strong> How quickly you're consuming your error budget</li>
+                            <li><strong>SLA:</strong> Contractual agreement based on SLOs</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="overview-card">
+                        <h3><i class="fas fa-trophy"></i> Common SLO Targets</h3>
+                        <div class="slo-targets">
+                            <div class="slo-target">
+                                <span class="slo-percentage">99.9%</span>
+                                <span class="slo-downtime">8.77h/month</span>
+                                <span class="slo-name">3 nines</span>
+                            </div>
+                            <div class="slo-target">
+                                <span class="slo-percentage">99.95%</span>
+                                <span class="slo-downtime">2.16h/month</span>
+                                <span class="slo-name">3.5 nines</span>
+                            </div>
+                            <div class="slo-target">
+                                <span class="slo-percentage">99.99%</span>
+                                <span class="slo-downtime">4.32m/month</span>
+                                <span class="slo-name">4 nines</span>
+                            </div>
+                            <div class="slo-target">
+                                <span class="slo-percentage">99.999%</span>
+                                <span class="slo-downtime">26s/month</span>
+                                <span class="slo-name">5 nines</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Examples Tab -->
+            <div id="examples" class="tab-pane">
+                <div class="examples-intro">
+                    <p>Calculate error budgets for different SLO targets and time periods:</p>
+                </div>
+                
+                <div class="examples-grid">
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h4>99.9% SLO - 30 Days</h4>
+                            <span class="example-badge">Common Target</span>
+                        </div>
+                        <div class="example-details">
+                            <div class="detail-row"><strong>Total Time:</strong> 43,200 minutes</div>
+                            <div class="detail-row"><strong>Error Budget:</strong> 0.1%</div>
+                            <div class="detail-row"><strong>Allowed Downtime:</strong> 43.2 minutes</div>
+                            <div class="detail-row"><strong>Readable:</strong> 43m 12s</div>
+                        </div>
+                    </div>
+                    
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h4>99.95% SLO - 30 Days</h4>
+                            <span class="example-badge">High Availability</span>
+                        </div>
+                        <div class="example-details">
+                            <div class="detail-row"><strong>Total Time:</strong> 43,200 minutes</div>
+                            <div class="detail-row"><strong>Error Budget:</strong> 0.05%</div>
+                            <div class="detail-row"><strong>Allowed Downtime:</strong> 21.6 minutes</div>
+                            <div class="detail-row"><strong>Readable:</strong> 21m 36s</div>
+                        </div>
+                    </div>
+                    
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h4>99.99% SLO - 30 Days</h4>
+                            <span class="example-badge">Critical Systems</span>
+                        </div>
+                        <div class="example-details">
+                            <div class="detail-row"><strong>Total Time:</strong> 43,200 minutes</div>
+                            <div class="detail-row"><strong>Error Budget:</strong> 0.01%</div>
+                            <div class="detail-row"><strong>Allowed Downtime:</strong> 4.32 minutes</div>
+                            <div class="detail-row"><strong>Readable:</strong> 4m 19s</div>
+                        </div>
+                    </div>
+                    
+                    <div class="example-card">
+                        <div class="example-header">
+                            <h4>99.999% SLO - 30 Days</h4>
+                            <span class="example-badge">Ultra Reliable</span>
+                        </div>
+                        <div class="example-details">
+                            <div class="detail-row"><strong>Total Time:</strong> 43,200 minutes</div>
+                            <div class="detail-row"><strong>Error Budget:</strong> 0.001%</div>
+                            <div class="detail-row"><strong>Allowed Downtime:</strong> 26 seconds</div>
+                            <div class="detail-row"><strong>Readable:</strong> 0m 26s</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="formula-section">
+                    <h3>Calculation Formula</h3>
+                    <div class="formula-display">
+                        <div class="formula-equation">
+                            <strong>Allowed Downtime = Total Time × (100% - SLO%) ÷ 100%</strong>
+                        </div>
+                        <div class="formula-breakdown">
+                            <p><strong>Where:</strong></p>
+                            <ul>
+                                <li><strong>Total Time:</strong> Time period in minutes (days × 24 × 60)</li>
+                                <li><strong>SLO%:</strong> Target uptime percentage (e.g., 99.9)</li>
+                                <li><strong>100% - SLO%:</strong> Error budget percentage</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Technical Details Tab -->
+            <div id="technical" class="tab-pane">
+                <div class="tech-intro">
+                    <p>This SLO Calculator is implemented using pure JavaScript with no external dependencies. It calculates error budgets based on Service Level Objectives using precise mathematical formulas.</p>
+                </div>
+                
+                <div class="code-breakdown">
+                    <h3>Step-by-Step Code Breakdown</h3>
+                    
+                    <div class="code-step">
+                        <h4>1. Input Validation</h4>
+                        <p>Validate that SLO is between 0 and 100, and days is positive:</p>
+                        <div class="code-snippet">
+                            <pre><code>if (slo < 0 || slo > 100 || days <= 0) {
+    return '&lt;p&gt;Invalid input values.&lt;/p&gt;';
+}
+// Ensures SLO percentage is valid and time period is positive</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="code-step">
+                        <h4>2. Total Time Calculation</h4>
+                        <p>Calculate total time in minutes for the specified period:</p>
+                        <div class="code-snippet">
+                            <pre><code>const totalMinutes = days * 24 * 60;
+// Converts days to minutes (24 hours/day × 60 minutes/hour)</code></pre>
+                        </div>
+                        <p>This gives us the total time window for measuring the SLO.</p>
+                    </div>
+                    
+                    <div class="code-step">
+                        <h4>3. Error Budget Calculation</h4>
+                        <p>Calculate allowed downtime in minutes using the SLO formula:</p>
+                        <div class="code-snippet">
+                            <pre><code>const allowedDowntimeMinutes = totalMinutes * (100 - slo) / 100;
+// Error budget = total time × (100% - SLO%) ÷ 100%</code></pre>
+                        </div>
+                        <p>This is the core calculation that determines how much downtime is acceptable.</p>
+                    </div>
+                    
+                    <div class="code-step">
+                        <h4>4. Unit Conversions</h4>
+                        <p>Convert the result to different time units for better readability:</p>
+                        <div class="code-snippet">
+                            <pre><code>const allowedDowntimeHours = allowedDowntimeMinutes / 60;
+const allowedDowntimeDays = allowedDowntimeHours / 24;
+// Convert minutes to hours and days for display</code></pre>
+                        </div>
+                        <p>Provides multiple time formats to help users understand the impact.</p>
+                    </div>
+                    
+                    <div class="code-step">
+                        <h4>5. Human-Readable Format</h4>
+                        <p>Convert fractional minutes to minutes and seconds:</p>
+                        <div class="code-snippet">
+                            <pre><code>const minutes = Math.floor(allowedDowntimeMinutes);
+const seconds = Math.round((allowedDowntimeMinutes - minutes) * 60);
+// Extract whole minutes and remaining seconds</code></pre>
+                        </div>
+                        <p>Creates a more intuitive display format (e.g., "43m 12s").</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Best Practices Tab -->
+            <div id="practices" class="tab-pane">
+                <div class="tips-grid">
+                    <div class="tips-card">
+                        <h3><i class="fas fa-lightbulb"></i> SLO Planning</h3>
+                        <ul>
+                            <li><strong>Start realistic:</strong> Begin with achievable SLOs (99-99.9%) and improve over time</li>
+                            <li><strong>Consider user impact:</strong> Different services may need different SLO targets</li>
+                            <li><strong>Include error budgets:</strong> Plan for incidents and maintenance windows</li>
+                            <li><strong>Regular review:</strong> Reassess SLOs quarterly based on business needs</li>
+                            <li><strong>Document trade-offs:</strong> Explain the cost-benefit of higher SLO targets</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tips-card">
+                        <h3><i class="fas fa-chart-bar"></i> Monitoring & Alerting</h3>
+                        <ul>
+                            <li><strong>Track burn rate:</strong> Monitor how quickly you're consuming error budget</li>
+                            <li><strong>Set up alerts:</strong> Alert when approaching error budget limits</li>
+                            <li><strong>Use dashboards:</strong> Visualize SLO compliance over time</li>
+                            <li><strong>Incident response:</strong> Have procedures for when SLOs are at risk</li>
+                            <li><strong>Post-mortems:</strong> Analyze incidents and their impact on SLOs</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tips-card">
+                        <h3><i class="fas fa-balance-scale"></i> Error Budget Management</h3>
+                        <ul>
+                            <li><strong>Spend wisely:</strong> Use error budget for planned improvements</li>
+                            <li><strong>Prevent exhaustion:</strong> Slow down releases when budget is low</li>
+                            <li><strong>Team autonomy:</strong> Give teams control over their error budgets</li>
+                            <li><strong>Graduated responses:</strong> Different actions at 50%, 80%, 100% budget used</li>
+                            <li><strong>Reset periods:</strong> Define when error budgets reset (monthly/quarterly)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="applications-section">
+                    <h3>Practical Applications</h3>
+                    <div class="applications-grid">
+                        <div class="application">
+                            <h4><i class="fas fa-calendar-alt"></i> Capacity Planning</h4>
+                            <p>Determine realistic uptime targets for infrastructure investments and scaling decisions.</p>
+                        </div>
+                        <div class="application">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Incident Response</h4>
+                            <p>Know how much downtime you can afford before violating service level agreements.</p>
+                        </div>
+                        <div class="application">
+                            <h4><i class="fas fa-users"></i> Team Communication</h4>
+                            <p>Set clear expectations with stakeholders about service reliability and trade-offs.</p>
+                        </div>
+                        <div class="application">
+                            <h4><i class="fas fa-dollar-sign"></i> Cost Optimization</h4>
+                            <p>Balance reliability costs with business value and user experience requirements.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.getElementById('sloForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const slo = parseFloat(document.getElementById('slo').value);
+        const days = parseInt(document.getElementById('days').value);
+        
+        const result = calculateSLO(slo, days);
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = result;
+        resultDiv.classList.add('show');
+    });
+
+    function calculateSLO(slo, days) {
+        if (slo < 0 || slo > 100 || days <= 0) {
+            return '<p>Invalid input values.</p>';
+        }
+        
+        const totalMinutes = days * 24 * 60;
+        const allowedDowntimeMinutes = totalMinutes * (100 - slo) / 100;
+        
+        const allowedDowntimeHours = allowedDowntimeMinutes / 60;
+        const allowedDowntimeDays = allowedDowntimeHours / 24;
+        
+        const minutes = Math.floor(allowedDowntimeMinutes);
+        const seconds = Math.round((allowedDowntimeMinutes - minutes) * 60);
+        
+        return `
+            <p><strong>Target SLO:</strong> ${slo}%</p>
+            <p><strong>Time Period:</strong> ${days} days</p>
+            <p><strong>Allowed Downtime:</strong> ${allowedDowntimeMinutes.toFixed(2)} minutes</p>
+            <p><strong>Allowed Downtime:</strong> ${allowedDowntimeHours.toFixed(2)} hours</p>
+            <p><strong>Allowed Downtime:</strong> ${allowedDowntimeDays.toFixed(2)} days</p>
+            <p><strong>Readable Format:</strong> ${minutes}m ${seconds}s</p>
+        `;
+    }
+
+    // Tab functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabPanes = document.querySelectorAll('.tab-pane');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const tabId = this.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and panes
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabPanes.forEach(pane => pane.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding pane
+                this.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    });
+</script>

@@ -1,0 +1,31 @@
+{{/* head.html - SEO meta tags partial template
+   Renders all SEO metadata including standard meta tags, Open Graph,
+   Twitter Cards, and JSON-LD structured data from the page's Meta struct.
+*/}}
+{{define "head.html"}}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.Config.meta.title}}</title>
+    {{if .Config.meta.description}}<meta name="description" content="{{.Config.meta.description}}">{{end}}
+    {{if .Config.meta.canonical}}<link rel="canonical" href="{{.Config.meta.canonical}}">{{end}}
+    {{if .Config.meta.robots}}<meta name="robots" content="{{.Config.meta.robots}}">{{end}}
+    {{if .Config.meta.keywords}}<meta name="keywords" content="{{.Config.meta.keywords}}">{{end}}
+    {{if .Config.meta.og_title}}<meta property="og:title" content="{{.Config.meta.og_title}}">{{end}}
+    {{if .Config.meta.og_description}}<meta property="og:description" content="{{.Config.meta.og_description}}">{{end}}
+    {{if .Config.meta.og_image}}<meta property="og:image" content="{{.Config.meta.og_image}}">{{end}}
+    {{if .Config.meta.og_url}}<meta property="og:url" content="{{.Config.meta.og_url}}">{{end}}
+    {{if .Config.meta.og_type}}<meta property="og:type" content="{{.Config.meta.og_type}}">{{end}}
+    {{if .Config.meta.twitter_title}}<meta name="twitter:title" content="{{.Config.meta.twitter_title}}">{{end}}
+    {{if .Config.meta.twitter_description}}<meta name="twitter:description" content="{{.Config.meta.twitter_description}}">{{end}}
+    {{if .Config.meta.twitter_image}}<meta name="twitter:image" content="{{.Config.meta.twitter_image}}">{{end}}
+    {{if .Config.meta.twitter_card}}<meta name="twitter:card" content="{{.Config.meta.twitter_card}}">{{end}}
+    {{if .Meta.JsonLd}}
+    <script type="application/ld+json">
+{{.Meta.JsonLd | toJson}}
+    </script>
+    {{end}}
+    <link rel="icon" href="/assets/images/emiralabs-ico.svg" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+{{end}}

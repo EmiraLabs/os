@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmiraLabs Open Source Tools</title>
+    <meta name="description" content="Discover our curated collection of free, powerful open source tools designed to supercharge your development workflow and make complex tasks simple.">
+    <link rel="canonical" href="https://os.emiralabs.com">
+    <meta name="robots" content="index,follow">
+    <meta name="keywords" content="open source tools, development tools, free tools, EmiraLabs, CIDR calculator, QR generator, SLO calculator">
+    <meta property="og:title" content="EmiraLabs Open Source Tools">
+    <meta property="og:description" content="Discover our curated collection of free, powerful open source tools designed to supercharge your development workflow and make complex tasks simple.">
+    <meta property="og:image" content="/assets/images/emiralabs-ico.svg">
+    <meta property="og:url" content="https://os.emiralabs.com">
+    <meta property="og:type" content="website">
+    <meta name="twitter:title" content="EmiraLabs Open Source Tools">
+    <meta name="twitter:description" content="Discover our curated collection of free, powerful open source tools designed to supercharge your development workflow and make complex tasks simple.">
+    <meta name="twitter:image" content="/assets/images/emiralabs-ico.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="icon" href="/assets/images/emiralabs-ico.svg" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
+
+</head>
+<body>
+    <nav class="navbar">
+    <div class="nav-container">
+        <a href="/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="111.249 35.768 47.412 64.914" width="32" height="32">
+                <path d="M 121.737 75.641 L 120 65.793 L 149.91 60.519 L 149.91 70.673 Z" style="stroke-width: 1px; fill: white;"/>
+                <path d="M 120 91.931 L 130 90.157 L 130 64.03 L 120 65.793 Z" style="fill: white;"/>
+                <path d="M 120 49.763 L 130 48 L 130 48.03 L 149.91 44.519 L 149.91 54.673 L 121.737 59.641 L 121.735 59.627 L 120 59.933 Z" style="fill: white;"/>
+                <path d="M 139.831 62.296 L 139.831 72.45 L 129.831 74.214 L 129.831 64.06 Z" style="fill: white;"/>
+                <path d="M 139.831 62.296 L 139.831 72.45 L 129.831 74.214 L 129.831 64.06 Z" style="fill: white;"/>
+                <path d="M 139.846 72.501 L 139.847 62.224 L 139.976 62.201 L 149.688 70.745 L 139.846 72.501 Z" style="stroke-width: 1px; fill: white;"/>
+                <path d="M 120 60 L 120.001 49.723 L 120.13 49.7 L 129.842 58.244 L 120 60 Z" style="stroke-width: 1px; fill: white;"/>
+                <path d="M 140.021 78.38 L 149.636 86.839 L 149.833 86.804 L 149.833 76.65 Z" style="fill: white; stroke-width: 1px;"/>
+                <path d="M 135.9 79.139 L 135.9 89.293 L 149.733 86.854 L 149.733 76.7 L 135.9 79.139 Z" style="stroke-width: 1px; fill: white;"/>
+                <path d="M 140 78.43 L 149.615 86.889 L 149.812 86.854 L 149.812 76.7 L 140 78.43 Z" style="fill: white; stroke-width: 1px;"/>
+            </svg>
+            <span>EmiraOS</span>
+        </a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+        <div class="nav-menu">
+            <button class="close-modal" onclick="document.getElementById('nav-toggle').checked = false;">&times;</button>
+            <div class="nav-links">
+                
+                <a href="/">Home</a>
+                
+                <a href="/#tools">Tools</a>
+                
+                <a href="/#about">About</a>
+                
+                <a href="/#contribute">Contribute</a>
+                
+                <a href="https://emiralabs.com" target="_blank" class="emiralabs-link">
+                    <span class="gradient-text">EmiraLabs</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                        <defs>
+                            <linearGradient id="emiraGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00d4ff"/>
+                                <stop offset="100%" stop-color="#00fff0"/>
+                            </linearGradient>
+                        </defs>
+                        <path d="M10 2v2h2.586L7.5 8.086 8.914 9.5 14 4.414V7h2V2z" fill="url(#emiraGrad)"/>
+                        <path d="M2 4v10h10v-2H4V4z" fill="url(#emiraGrad)"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+    <main>
+        <section class="hero">
+    <div class="hero-content">
+        <h1 class="hero-title">
+            <span class="gradient-text">QR Code Generator</span>
+            <span class="hero-subtitle">Utility Tool</span>
+        </h1>
+        <p class="hero-description">
+            Generate QR codes instantly from text, URLs, or any content. Perfect for sharing information quickly and efficiently.
+        </p>
+    </div>
+    <div class="hero-visual">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </div>
+</section>
+
+<section class="tool-section">
+    <div class="container">
+        <div class="tool-content">
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="qr-text">Enter text or URL:</label>
+                    <textarea id="qr-text" placeholder="https://example.com or any text..." rows="3"></textarea>
+                </div>
+                <div class="options-group">
+                    <div class="option">
+                        <label for="qr-size">Size:</label>
+                        <select id="qr-size">
+                            <option value="256">256x256</option>
+                            <option value="512" selected>512x512</option>
+                            <option value="1024">1024x1024</option>
+                        </select>
+                    </div>
+                    <div class="option">
+                        <label for="qr-error">Error Correction:</label>
+                        <select id="qr-error">
+                            <option value="L">Low (7%)</option>
+                            <option value="M" selected>Medium (15%)</option>
+                            <option value="Q">Quartile (25%)</option>
+                            <option value="H">High (30%)</option>
+                        </select>
+                    </div>
+                </div>
+                <button id="generate-btn" class="generate-btn">
+                    <i class="fas fa-qrcode"></i>
+                    Generate QR Code
+                </button>
+            </div>
+            <div class="output-section">
+                <div id="qr-container" class="qr-container">
+                    <div class="qr-placeholder">
+                        <i class="fas fa-qrcode fa-3x"></i>
+                        <p>Your QR code will appear here</p>
+                    </div>
+                </div>
+                <div class="download-section" id="download-section" style="display: none;">
+                    <button id="download-btn" class="download-btn">
+                        <i class="fas fa-download"></i>
+                        Download PNG
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://unpkg.com/qrious@4.0.2/dist/qrious.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const qrText = document.getElementById('qr-text');
+        const generateBtn = document.getElementById('generate-btn');
+        const qrContainer = document.getElementById('qr-container');
+        const downloadSection = document.getElementById('download-section');
+        const downloadBtn = document.getElementById('download-btn');
+        const qrSize = document.getElementById('qr-size');
+        const qrError = document.getElementById('qr-error');
+
+        let qrCode = null;
+        let isGenerating = false;
+
+        
+        function showLoading() {
+            qrContainer.innerHTML = '<div class="qr-placeholder"><i class="fas fa-spinner fa-spin fa-3x"></i><p>Generating QR code...</p></div>';
+            generateBtn.disabled = true;
+            generateBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
+        }
+
+        
+        function hideLoading() {
+            generateBtn.disabled = false;
+            generateBtn.innerHTML = '<i class="fas fa-qrcode"></i> Generate QR Code';
+        }
+
+        
+        function validateInput(text) {
+            if (!text || text.trim().length === 0) {
+                return 'Please enter some text or URL to generate QR code.';
+            }
+            if (text.length > 2048) {
+                return 'Text is too long. Maximum 2048 characters allowed.';
+            }
+            return null;
+        }
+
+        
+        function generateQRCode() {
+            const text = qrText.value.trim();
+            const validationError = validateInput(text);
+
+            if (validationError) {
+                alert(validationError);
+                return;
+            }
+
+            if (isGenerating) return;
+            isGenerating = true;
+
+            showLoading();
+
+            try {
+                
+                qrContainer.innerHTML = '';
+
+                const size = parseInt(qrSize.value);
+                const errorCorrectionLevel = qrError.value;
+
+                
+                const qr = new QRious({
+                    value: text,
+                    size: size,
+                    level: errorCorrectionLevel.toLowerCase(),
+                    background: '#FFFFFF',
+                    foreground: '#000000',
+                    padding: 16
+                });
+
+                
+                const canvas = document.createElement('canvas');
+                canvas.width = size;
+                canvas.height = size;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(qr.canvas, 0, 0, size, size);
+
+                qrContainer.appendChild(canvas);
+                qrCode = canvas;
+
+                downloadSection.style.display = 'block';
+
+                
+                qrContainer.style.animation = 'fadeIn 0.5s ease-in-out';
+                setTimeout(() => {
+                    qrContainer.style.animation = '';
+                }, 500);
+
+            } catch (error) {
+                console.error('QR Code generation error:', error);
+                qrContainer.innerHTML = '<div class="qr-placeholder"><i class="fas fa-exclamation-triangle fa-3x"></i><p>Error generating QR code. Please check your input and try again.</p></div>';
+                downloadSection.style.display = 'none';
+            } finally {
+                hideLoading();
+                isGenerating = false;
+            }
+        }
+
+        
+        generateBtn.addEventListener('click', generateQRCode);
+
+        
+        qrText.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                generateQRCode();
+            }
+        });
+
+        
+        downloadBtn.addEventListener('click', function() {
+            if (qrCode) {
+                try {
+                    const link = document.createElement('a');
+                    link.download = `qrcode_${Date.now()}.png`;
+                    link.href = qrCode.toDataURL('image/png');
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                } catch (error) {
+                    console.error('Download error:', error);
+                    alert('Failed to download QR code. Please try again.');
+                }
+            }
+        });
+
+        
+        qrText.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = Math.min(this.scrollHeight, 200) + 'px';
+        });
+
+        
+        setTimeout(() => {
+            qrText.value = 'https://emiralabs.com';
+            generateQRCode();
+        }, 500);
+
+        
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: scale(0.9); }
+                to { opacity: 1; transform: scale(1); }
+            }
+            .fa-spin {
+                animation: fa-spin 1s infinite linear;
+            }
+            @keyframes fa-spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+    });
+</script>
+    </main>
+    <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <div class="footer-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="111.249 35.768 47.412 64.914" width="24" height="24">
+                    <path d="M 121.737 75.641 L 120 65.793 L 149.91 60.519 L 149.91 70.673 Z" style="stroke-width: 1px; fill: rgb(25, 166, 162);"/>
+                    <path d="M 120 91.931 L 130 90.157 L 130 64.03 L 120 65.793 Z" style="fill: rgb(15, 33, 81);"/>
+                    <path d="M 120 49.763 L 130 48 L 130 48.03 L 149.91 44.519 L 149.91 54.673 L 121.737 59.641 L 121.735 59.627 L 120 59.933 Z" style="fill: rgb(25, 166, 162);"/>
+                    <path d="M 139.831 62.296 L 139.831 72.45 L 129.831 74.214 L 129.831 64.06 Z" style="fill: rgb(15, 33, 81);"/>
+                    <path d="M 139.831 62.296 L 139.831 72.45 L 129.831 74.214 L 129.831 64.06 Z" style="fill: rgb(25, 166, 162); fill-opacity: 0.5;"/>
+                    <path d="M 139.846 72.501 L 139.847 62.224 L 139.976 62.201 L 149.688 70.745 L 139.846 72.501 Z" style="stroke-width: 1px; fill: rgb(15, 33, 81); fill-opacity: 0.25;"/>
+                    <path d="M 120 60 L 120.001 49.723 L 120.13 49.7 L 129.842 58.244 L 120 60 Z" style="fill-opacity: 0.5; stroke-width: 1px; fill: rgb(15, 33, 81);"/>
+                    <path d="M 140.021 78.38 L 149.636 86.839 L 149.833 86.804 L 149.833 76.65 Z" style="fill: rgb(25, 166, 162); stroke-width: 1px;"/>
+                    <path d="M 135.9 79.139 L 135.9 89.293 L 149.733 86.854 L 149.733 76.7 L 135.9 79.139 Z" style="stroke-width: 1px; fill: rgb(15, 33, 81);"/>
+                    <path d="M 140 78.43 L 149.615 86.889 L 149.812 86.854 L 149.812 76.7 L 140 78.43 Z" style="fill: rgb(25, 166, 162); stroke-width: 1px; fill-opacity: 0.5;"/>
+                </svg>
+                <span>EmiraLabs</span>
+            </div>
+            <p class="footer-text">Building the future of open source tools, one line of code at a time.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Tools</h4>
+            <ul>
+                <li><a href="/cidr-calculator">CIDR Calculator</a></li>
+                <li><a href="/qr-generator">QR Generator</a></li>
+                <li><a href="/slo-calculator">SLO Calculator</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Company</h4>
+            <ul>
+                <li><a href="/about">About</a></li>
+                <li><a href="/about/contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2025 EmiraLabs. Made with <i class="fas fa-heart"></i> for developers everywhere.</p>
+        <p class="footer-credit">Powered by <a href="https://github.com/lithammer/stw" target="_blank">stw</a></p>
+    </div>
+</footer>
+    <script src="/assets/js/app.js"></script>
+    <script>
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('nav-toggle').checked = false;
+            });
+        });
+    </script>
+    
+    
+    
+</body>
+</html>
