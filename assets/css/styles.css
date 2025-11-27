@@ -273,45 +273,6 @@ body {
     height: 300px;
 }
 
-.floating-shapes {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.shape {
-    position: absolute;
-    border-radius: var(--radius);
-    animation: float 6s ease-in-out infinite;
-}
-
-.shape-1 {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, var(--accent-electric), var(--accent-aqua));
-    top: 20%;
-    left: 20%;
-    animation-delay: 0s;
-}
-
-.shape-2 {
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, var(--accent-aqua), var(--accent-electric));
-    top: 60%;
-    right: 10%;
-    animation-delay: 2s;
-}
-
-.shape-3 {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(135deg, var(--accent-silver), var(--accent-electric));
-    bottom: 20%;
-    left: 60%;
-    animation-delay: 4s;
-}
-
 @keyframes float {
     0%, 100% {
         transform: translateY(0px) rotate(0deg);
@@ -319,8 +280,6 @@ body {
     50% {
         transform: translateY(-20px) rotate(180deg);
     }
-}
-
 .emiralabs-link {
     display: flex;
     align-items: center;
@@ -844,6 +803,12 @@ body {
         color: var(--accent-electric);
     }
 }
+}
+
+@media (max-width: 1024px) {
+    .hero-visual {
+        display: none;
+    }
 }
 
 @media (max-width: 480px) {
