@@ -1,6 +1,6 @@
 # EmiraLabs Open Source Tools
 
-A curated collection of free, powerful open source tools designed to supercharge your development workflow and make complex tasks simple.
+A curated collection of free, powerful open source tools designed to supercharge your development workflow and make complex tasks simple. This site is built using [stw](https://github.com/lithammer/stw), a static site generator.
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-os.emiralabs.com-blue)](https://os.emiralabs.com)
 
@@ -15,11 +15,18 @@ Calculate Service Level Objectives and error budgets. Understand uptime requirem
 ### QR Code Generator
 Generate QR codes instantly from text, URLs, or any content. Perfect for sharing information quickly.
 
+## 📁 Project Structure
+
+- `pages/`: Contains the HTML pages for each tool and the main index
+- `templates/`: Reusable templates and components (base.html, header, footer, etc.)
+- `assets/`: CSS, JS, and images
+- `config.yaml`: Site configuration for stw
+
 ## 🛠️ Getting Started
 
 ### Prerequisites
+- [stw](https://github.com/lithammer/stw) (static site generator)
 - A web browser
-- Python 3 (for local development)
 
 ### Running Locally
 
@@ -29,12 +36,17 @@ Generate QR codes instantly from text, URLs, or any content. Perfect for sharing
    cd os
    ```
 
-2. Start a local server:
+2. Install stw:
    ```bash
-   python3 -m http.server 8000
+   go install github.com/lithammer/stw@latest
    ```
 
-3. Open your browser and navigate to `http://localhost:8000`
+3. Serve the site:
+   ```bash
+   stw serve
+   ```
+
+4. Open your browser and navigate to the provided URL (usually `http://localhost:8080`)
 
 ## 🤝 Contributing
 
@@ -43,17 +55,19 @@ We welcome contributions! Here's how you can help:
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-tool`)
 3. Commit your changes (`git commit -m 'Add amazing tool'`)
-4. Push to the branch (`git push origin feature/amazing-tool`)
-5. Open a Pull Request
+4. Build and test locally: `stw serve`
+5. Push to the branch (`git push origin feature/amazing-tool`)
+6. Open a Pull Request
 
 ### Adding a New Tool
 
 To add a new tool to the collection:
 
-1. Create a new directory under the root (e.g., `new-tool/`)
-2. Add an `index.html` file with your tool's implementation
-3. Update the main `index.html` to include your tool in the tools grid
-4. Test locally and submit a pull request
+1. Create a new directory under `pages/` (e.g., `pages/new-tool/`)
+2. Add an `index.html` file with frontmatter metadata and your tool's HTML implementation
+3. Update `pages/index.html` to include your tool in the tools grid
+4. Run `stw serve` to build and preview the site
+5. Test locally and submit a pull request
 
 ## 📄 License
 
