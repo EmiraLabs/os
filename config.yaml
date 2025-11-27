@@ -1,0 +1,29 @@
+navigations:
+  - name: Home
+    url: /
+  - name: Tools
+    url: /#tools
+  - name: About
+    url: /#about
+  - name: Contribute
+    url: /#contribute
+
+home:
+  contents: []  # Will put content in pages/index.html
+
+meta:
+  title: "EmiraLabs Open Source Tools"
+  description: "Discover our curated collection of free, powerful open source tools designed to supercharge your development workflow and make complex tasks simple."
+  canonical: "https://os.emiralabs.com"
+  robots: "index,follow"
+  keywords: "open source tools, development tools, free tools, EmiraLabs, CIDR calculator, QR generator, SLO calculator"
+  og_title: "EmiraLabs Open Source Tools"
+  og_description: "Discover our curated collection of free, powerful open source tools designed to supercharge your development workflow and make complex tasks simple."
+  og_image: "/assets/images/emiralabs-ico.svg"
+  og_url: "https://os.emiralabs.com"
+  og_type: "website"
+  twitter_title: "EmiraLabs Open Source Tools"
+  twitter_description: "Discover our curated collection of free, powerful open source tools designed to supercharge your development workflow and make complex tasks simple."
+  twitter_image: "/assets/images/emiralabs-ico.svg"
+  twitter_card: "summary_large_image"
+  jsonld: {}
